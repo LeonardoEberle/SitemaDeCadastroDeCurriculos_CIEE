@@ -1,0 +1,80 @@
+services:
+
+  # ============================================================
+  # SQL Server - Banco de Dados
+  # ============================================================
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: desafio-ciee-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${SA_PASSWORD}
+      - MSSQL_PID=Express
+    ports:
+      - "${SQL_PORT}:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - desafio-ciee-net
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD} -Q 'SELECT 1' -C || exit 1"
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  # ============================================================
+  # API ASP.NET Core (.NET 10)
+  # ============================================================
+  api:
+    build:
+      context: ./ApiCurriculos
+      dockerfile: Dockerfile
+    container_name: desafio-ciee-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
+      - CORS__Origin=${CORS_ORIGIN}
+    ports:
+      - "${API_PORT}:8080"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - desafio-ciee-net
+    restart: unless-stopped
+
+  # ============================================================
+  # Frontend React + Vite (servido pelo Nginx)
+  # ============================================================
+  frontend:
+    build:
+      context: ./FrontCurriculo
+      dockerfile: Dockerfile
+    container_name: desafio-ciee-frontend
+    ports:
+      - "${FRONT_PORT}:80"
+    depends_on:
+      - api
+    networks:
+      - desafio-ciee-net
+    restart: unless-stopped
+
+# ============================================================
+# Rede compartilhada entre os serviços
+# ============================================================
+networks:
+  desafio-ciee-net:
+    driver: bridge
+
+# ============================================================
+# Volumes para persistência de dados
+# ============================================================
+volumes:
+  sqlserver-data:
