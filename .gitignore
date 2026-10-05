@@ -26,3 +26,13 @@ $RECYCLE.BIN/
 *.swp
 *.swo
 *~
+
+# ============================================================
+# Build artifacts / Publish output (qualquer subdiretorio)
+# ============================================================
+# .NET / Node - pastas de build/publish locais que nao vao para git
+**/bin/
+**/obj/
+**/dist/
+**/publish/
+**/publish*/
