@@ -69,7 +69,7 @@ export default function FormView({ onDone, vaga }) {
       const r = await criarPessoa(payload);
       setToast({
         msg: vaga
-          ? `Candidatura enviada para "${vaga.titulo}"! Boa sorte no processo 🤞`
+          ? `Candidatura enviada para "${vaga.titulo}"! Boa sorte no processo seletivo.`
           : (r?.mensagem || 'Cadastro salvo com sucesso!'),
         tipo: 'ok',
       });
@@ -94,20 +94,20 @@ export default function FormView({ onDone, vaga }) {
               : 'Preencha os campos abaixo. Campos com * são obrigatórios.'}
           </p>
         </div>
-        <button className="btn ghost" onClick={onDone}>← Voltar</button>
+        <button className="btn ghost" onClick={onDone}>Voltar</button>
       </header>
 
       {vaga && (
         <section className="card vaga-highlight">
           <div className="row between wrap">
             <div className="grow">
-              <div className="nome">📋 {vaga.titulo}</div>
+              <div className="nome">{vaga.titulo}</div>
               <div className="meta2">
                 <strong>{vaga.empresa}</strong>
                 <span className="sep">•</span>
-                <span>📍 {vaga.local}</span>
+                <span>{vaga.local}</span>
                 <span className="sep">•</span>
-                <span>💰 {vaga.faixa}</span>
+                <span>{vaga.faixa}</span>
                 <span className="sep">•</span>
                 <span className="badge">{vaga.tipo}</span>
               </div>
@@ -121,7 +121,7 @@ export default function FormView({ onDone, vaga }) {
           <div className="row between wrap">
             <h2 className="h2">Dados Pessoais</h2>
             <label className="file-btn">
-              <span className="btn">📄 Extrair de PDF</span>
+              <span className="btn">Extrair de PDF</span>
               <input
                 type="file"
                 accept=".pdf,application/pdf"
@@ -205,7 +205,7 @@ export default function FormView({ onDone, vaga }) {
                 className="input"
                 value={form.estado}
                 maxLength={20}
-                placeholder="SP"
+                placeholder="PR"
                 onChange={(e) => setField('estado', e.target.value)}
               />
             </Field>
@@ -239,7 +239,7 @@ export default function FormView({ onDone, vaga }) {
                   className="input"
                   value={h.nome || ''}
                   maxLength={255}
-                  placeholder={`Habilidade ${i + 1} (ex: C#, SQL)`}
+                  placeholder={`Habilidade ${i + 1} (ex: Pacote Office, organização)`}
                   onChange={(e) => setArr('habilidades', i, 'nome', e.target.value)}
                 />
               </div>
@@ -385,12 +385,12 @@ export default function FormView({ onDone, vaga }) {
           <button type="submit" className="btn primary" disabled={loading}>
             {loading
               ? (vaga ? 'Enviando...' : 'Salvando...')
-              : (vaga ? '📤 Enviar candidatura' : '💾 Salvar cadastro')}
+              : (vaga ? 'Enviar candidatura' : 'Salvar cadastro')}
           </button>
         </div>
       </form>
 
-      <footer className="footer">Desafio CIEE • Backend .NET 10 • Frontend React 19</footer>
+      <footer className="footer">Backend .NET 10 • Frontend React 19</footer>
     </div>
   );
 }

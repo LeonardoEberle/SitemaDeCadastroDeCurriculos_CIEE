@@ -40,12 +40,12 @@ export default function ListView({ onNew, onOpen, onBack }) {
       <Toast {...(toast || {})} />
       <header className="header">
         <div>
-          <h1>🔧 Área administrativa — Candidatos inscritos</h1>
+          <h1>Área administrativa — Candidatos inscritos</h1>
           <p className="sub">Validação e visualização dos cadastros realizados no portal do candidato.</p>
         </div>
         <div className="row gap">
-          <button className="btn ghost" onClick={onBack}>← Voltar para vagas</button>
-          <button className="btn primary" onClick={onNew}>+ Cadastro manual</button>
+          <button className="btn ghost" onClick={onBack}>Voltar para vagas</button>
+          <button className="btn primary" onClick={onNew}>Cadastro manual</button>
         </div>
       </header>
 
@@ -99,7 +99,7 @@ export default function ListView({ onNew, onOpen, onBack }) {
         </ul>
       </section>
 
-      <footer className="footer">Desafio CIEE • Backend .NET 10 • Frontend React 19</footer>
+      <footer className="footer">Backend .NET 10 • Frontend React 19</footer>
     </div>
   );
 }

@@ -18,10 +18,10 @@ export default function JobsView({ onApply, onGoAdmin }) {
     <div className="page">
       <header className="header">
         <div>
-          <h1>Portal do Candidato — CIEE</h1>
+          <h1>Portal do Candidato</h1>
           <p className="sub">
-            Encontre a vaga ideal e candidate-se em minutos. Suas informações serão usadas apenas
-            para o processo seletivo.
+            Encontre a vaga ideal em Curitiba e Região Metropolitana e candidate-se em minutos.
+            Suas informações serão usadas apenas para o processo seletivo.
           </p>
         </div>
         <button
@@ -29,7 +29,7 @@ export default function JobsView({ onApply, onGoAdmin }) {
           onClick={onGoAdmin}
           title="Apenas para validações do desafio"
         >
-          🔧 Área administrativa
+          Área administrativa
         </button>
       </header>
 
@@ -65,9 +65,9 @@ export default function JobsView({ onApply, onGoAdmin }) {
                 <div className="meta2">
                   <strong>{v.empresa}</strong>
                   <span className="sep">•</span>
-                  <span>📍 {v.local}</span>
+                  <span>{v.local}</span>
                   <span className="sep">•</span>
-                  <span>💰 {v.faixa}</span>
+                  <span>{v.faixa}</span>
                 </div>
                 <p className="desc">{v.descricao}</p>
                 <div className="tags">
@@ -78,7 +78,7 @@ export default function JobsView({ onApply, onGoAdmin }) {
               </div>
               <div className="actions">
                 <button className="btn primary" onClick={() => onApply(v)}>
-                  📝 Quero me candidatar
+                  Quero me candidatar
                 </button>
               </div>
             </li>
@@ -87,7 +87,7 @@ export default function JobsView({ onApply, onGoAdmin }) {
       </section>
 
       <footer className="footer">
-        Desafio CIEE • Área do Candidato ·{' '}
+        Área do Candidato ·{' '}
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); onGoAdmin(); }}

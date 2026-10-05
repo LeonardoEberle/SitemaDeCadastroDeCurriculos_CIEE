@@ -42,7 +42,7 @@ export default function DetailView({ id, onBack }) {
           <h1>Detalhes do Candidato</h1>
           <p className="sub">Visualização completa dos dados cadastrados.</p>
         </div>
-        <button className="btn ghost" onClick={onBack}>← Voltar</button>
+        <button className="btn ghost" onClick={onBack}>Voltar</button>
       </header>
 
       {loading && <section className="card"><div className="meta">Carregando...</div></section>}
@@ -105,7 +105,7 @@ export default function DetailView({ id, onBack }) {
         </>
       )}
 
-      <footer className="footer">Desafio CIEE • Backend .NET 10 • Frontend React 19</footer>
+      <footer className="footer">Backend .NET 10 • Frontend React 19</footer>
     </div>
   );
 }
