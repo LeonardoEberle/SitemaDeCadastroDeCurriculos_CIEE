@@ -58,8 +58,11 @@ packages.lock.json
 appsettings.jwt.json
 local.settings.json
 
-## Publish
+## Publish (qualquer pasta de saida do dotnet publish)
 Publish/
+publish/
+publish*/
+**/publish*/
 AppPackages/
 BundleArtifacts/
 Package.StoreAssociation.xml
