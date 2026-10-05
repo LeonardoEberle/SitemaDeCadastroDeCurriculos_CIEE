@@ -1,8 +1,2 @@
-Como você organizou e executou o trabalho.
-As principais decisões técnicas e seus motivos.
-Quais ferramentas de IA e modelos utilizou, se houver.
-Em quais etapas a IA ajudou, com alguns exemplos de pedidos e como as respostas foram aproveitadas.
-O que você precisou corrigir, adaptar ou descartar.
-Como verificou se a solução estava correta.
-O tempo aproximado dedicado ao desafio.
-As dificuldades, limitações e melhorias que faria com mais tempo.
+Decidi começar planejando o projeto e para tal optei por utilizar .net e react ja que sou mais familiarizado com ambos, após criar o setup inicial do projeto comecei a planejar a estrutura do projeto e as funcionalidades que seriam implementadas. optei por dockerizar o projeto para evitar problemas de compatibilidades para quando alguem quisesse baixar o projeto e testa-lo em sua proproia maquina, pedi o auxilio da IA para realizar tal tarefa que considero um pouco complicada.
+o projeto todo tomou cerca de 6 a 7 horas para chegar ao estado atual pois utilizei a IA para auxiliar na implementação das funcionalidades core do projeto assim reduzindo drasticamente a necessidade de codificação manual, utilizei principalmente a IA para auxiliar na implementação das rotas e controllers do projeto bem como constantemente debatia com a mesma sobre o estado atual do projeto. de inicio planejei extrair muitos dados do PDF porém a complexididade de retira-los me fez reduzir significativamente a lista, pensei também em implementar alguns tipos de verificações e validações ao projeto que infelizmente acabei não adicionand. Com o tempo eu melhoraria a capacidade de extrair dados dos arquivos de curriculos, adicionaria alguns testes de envio e melhoraria a segurança no que diz respeito ao envio de dados do back para o banco como sql injection.
